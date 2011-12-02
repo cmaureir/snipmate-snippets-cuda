@@ -27,7 +27,7 @@ The current content is:
 
  * ``__global__`` (global),
  * ``__device__`` (device),
- * ``kernel <<< ... <<< ()`` (kernel),
+ * ``kernel <<< ... >>> ()`` (kernel),
  
 **CUDA data types**:
 
