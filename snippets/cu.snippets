@@ -1,0 +1,57 @@
+snippet global
+	__global__ void ${1:name}(${2:args}){
+		${3:// function content}
+	}
+
+snippet device
+	__device__ ${1:void} ${2:name}(${3:args}){
+		${4:// function content}
+	}
+
+snippet id
+	${1:int} ${2:id} = threadIdx.x + blockDim.x * blockIdx.x;
+
+snippet syncth
+	__syncthreads();
+
+snippet thsync
+	cudaThreadSynchronize();
+
+snippet kernel
+	${1:kernel} <<< ${2:blockNum}, ${3:thPerBlock}, ${4:memSize} <<< (${5:args});
+
+snippet memcpyhd
+	cudaMemcpy(${1:host_var},${2:device_var},${3:size},cudaMemCpyHostToDevice);
+
+snippet memcpydh
+	cudaMemcpy(${1:device_var},${2:host_var},${3:size},cudaMemCpyDeviceToHost);
+
+snippet htod
+	cudaMemCpyHostToDevice
+
+snippet dtoh
+	cudaMemcpyDeviceToHost
+
+snippet malloc
+	cudaMalloc(${1:&var},${2:size});
+
+snippet free
+	cudaFree(${1:var});
+
+snippet eventt
+	cudaEvent_t ${1:var};
+
+snippet eventc
+	cudaEventCreate(${1:&var});
+
+snippet eventr
+	cudaEventRecord(${1:var},${2:0});
+
+snippet events
+	cudaEventSynchronize(${1:var});
+
+snippet evente
+	cudaEventElapsedTime(${1:&time},${2:ini},${3:end});
+
+snippet eventd
+	cudaEventDestroy(${1:var});
