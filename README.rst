@@ -1,42 +1,46 @@
 Snipmate.vim for CUDA files
 ===========================
 
- * *Author:* Cristián Maureira - cmaureirafredes@gmail.com
+**Author:** Cristián Maureira - cmaureirafredes@gmail.com
 
 This plugins aims to provide some
 snippets for writing CUDA files.
 
 The current content is:
 
- * *CUDA functions*:
-``__syncthreads()`` (sync),
-``cudathreadsynchronize()`` (thsync),
-``cudaEventCreate()`` (eventc),
-``cudaEventRecord()`` (eventr),
-``cudaEventSynchronize()`` (events),
-``cudaEventElapsedTime()`` (evente),
-``cudaEventDestroy()`` (eventd),
-``cudaMalloc()`` (malloc),
-``cudaFree()`` (free),
-``cudaMemCpy()`` (memcpy),
-``cudaMemCpy(HostToDevice)`` (memcpyhd),
-``cudaMemCpy(DeviceToHost)`` (memcpydt),
+**CUDA functions**:
 
- * *CUDA structures*:
+ * ``__syncthreads()`` (sync),
+ * ``cudathreadsynchronize()`` (thsync),
+ * ``cudaEventCreate()`` (eventc),
+ * ``cudaEventRecord()`` (eventr),
+ * ``cudaEventSynchronize()`` (events),
+ * ``cudaEventElapsedTime()`` (evente),
+ * ``cudaEventDestroy()`` (eventd),
+ * ``cudaMalloc()`` (malloc),
+ * ``cudaFree()`` (free),
+ * ``cudaMemCpy()`` (memcpy),
+ * ``cudaMemCpy(HostToDevice)`` (memcpyhd),
+ * ``cudaMemCpy(DeviceToHost)`` (memcpydt),
 
-``__global__`` (global),
-``__device__`` (device),
-``kernel <<< ... <<< ()`` (kernel),
+**CUDA structures**:
+
+ * ``__global__`` (global),
+ * ``__device__`` (device),
+ * ``kernel <<< ... <<< ()`` (kernel),
  
- * *CUDA data types*:
-``cudaEvent_t`` (eventt),
+**CUDA data types**:
 
- * *CUDA words*:
-``cudaMemCpyHostToDevice`` (htod),
-``cudaMemCpyDeviceToHost`` (dtoh),
+ * ``cudaEvent_t`` (eventt),
 
- * *CUDA code lines*:
-``threadidx.x + blockdim.x * blockidx.x`` (id)
+** *CUDA words**:
+
+ * ``cudaMemCpyHostToDevice`` (htod),
+ * ``cudaMemCpyDeviceToHost`` (dtoh),
+
+**CUDA code lines**:
+
+ * ``threadidx.x + blockdim.x * blockidx.x`` (id)
 
 The last CUDA code line is used in almost all CUDA programs.
 
