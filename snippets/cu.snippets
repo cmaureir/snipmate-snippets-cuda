@@ -49,7 +49,7 @@ snippet device
 	}
 
 snippet kernel
-	${1:kernel} <<< ${2:blockNum}, ${3:thPerBlock}, ${4:memSize} <<< (${5:args});
+	${1:kernel} <<< ${2:blockNum}, ${3:thPerBlock}, ${4:memSize} >>> (${5:args});
 
 # CUDA Data Types
 
