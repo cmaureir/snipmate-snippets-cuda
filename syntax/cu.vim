@@ -42,4 +42,4 @@ syn match       String          "cudaMemCpyDeviceToHost"
 " CUDA functions
 syn keyword cLabel __syncthreads cudaThreadSynchronize
 syn keyword cLabel cudaEventCreate cudaEventRecord cudaEventSynchronize cudaEventElapsedTime cudaEventDestroy
-syn keyword cLabel cudaMalloc cudaFree cudaMemCpy
+syn keyword cLabel cudaMalloc cudaFree cudaMemcpy
