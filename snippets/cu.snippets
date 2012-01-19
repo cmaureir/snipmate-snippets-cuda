@@ -31,10 +31,10 @@ snippet memcpy
 	cudaMemcpy(${1:host_var},${2:device_var},${3:size},${4});
 
 snippet memcpyhd
-	cudaMemcpy(${1:host_var},${2:device_var},${3:size},cudaMemCpyHostToDevice);
+	cudaMemcpy(${1:host_var},${2:device_var},${3:size},cudaMemcpyHostToDevice);
 
 snippet memcpydh
-	cudaMemcpy(${1:device_var},${2:host_var},${3:size},cudaMemCpyDeviceToHost);
+	cudaMemcpy(${1:device_var},${2:host_var},${3:size},cudaMemcpyDeviceToHost);
 
 # CUDA Structures
 
@@ -59,7 +59,7 @@ snippet eventt
 # CUDA words
 
 snippet htod
-	cudaMemCpyHostToDevice
+	cudaMemcpyHostToDevice
 
 snippet dtoh
 	cudaMemcpyDeviceToHost
