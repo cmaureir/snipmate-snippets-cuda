@@ -36,8 +36,9 @@ syn match       String          "blockIdx\.[xy]"
 syn match       String          "blockDim\.[xy]"
 syn match       String          "GridDim\.[xy]"
 syn match       String          "threadIdx\.[xyz]"
-syn match       String          "cudaMemCpyHostToDevice"
-syn match       String          "cudaMemCpyDeviceToHost"
+syn match       String          "cudaMemcpyHostToDevice"
+syn match       String          "cudaMemcpyDeviceToHost"
+syn match       String          "cudaMemcpyDeviceToDevice"
 
 " CUDA functions
 syn keyword cLabel __syncthreads cudaThreadSynchronize

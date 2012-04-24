@@ -1,5 +1,4 @@
 # CUDA Functions
-
 snippet sync
 	__syncthreads();
 
@@ -27,17 +26,16 @@ snippet malloc
 snippet free
 	cudaFree(${1:var});
 
-snippet memcpy
-	cudaMemcpy(${1:host_var},${2:device_var},${3:size},${4});
+snippet mcpy
+	cudaMemcpy(${1:dest_var},${2:orig_var},${3:size},${4});
 
 snippet memcpyhd
-	cudaMemcpy(${1:host_var},${2:device_var},${3:size},cudaMemcpyHostToDevice);
+	cudaMemcpy(${1:dev_var},${2:host_var},${3:size},cudaMemcpyHostToDevice);
 
 snippet memcpydh
-	cudaMemcpy(${1:device_var},${2:host_var},${3:size},cudaMemcpyDeviceToHost);
+	cudaMemcpy(${1:host_var},${2:dev_var},${3:size},cudaMemcpyDeviceToHost);
 
 # CUDA Structures
-
 snippet global
 	__global__ void ${1:name}(${2:args}){
 		${3:// function content}
@@ -52,19 +50,15 @@ snippet kernel
 	${1:kernel} <<< ${2:blockNum}, ${3:thPerBlock}, ${4:memSize} >>> (${5:args});
 
 # CUDA Data Types
-
 snippet eventt
 	cudaEvent_t ${1:var};
 
 # CUDA words
-
 snippet htod
 	cudaMemcpyHostToDevice
-
 snippet dtoh
 	cudaMemcpyDeviceToHost
 
 # CUDA code lines
-
 snippet id
 	${1:int} ${2:id} = threadIdx.x + blockDim.x * blockIdx.x;
