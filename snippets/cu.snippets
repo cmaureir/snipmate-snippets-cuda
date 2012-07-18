@@ -1,64 +1,146 @@
-# CUDA Functions
+# CUDA
+
+## CUDA Functions
 snippet sync
 	__syncthreads();
+	${1}
 
 snippet thsync
 	cudaThreadSynchronize();
+	${1}
 
 snippet eventc
 	cudaEventCreate(${1:&var});
+	${2}
 
 snippet eventr
 	cudaEventRecord(${1:var},${2:0});
+	${3}
 
 snippet events
 	cudaEventSynchronize(${1:var});
+	${2}
 
 snippet evente
 	cudaEventElapsedTime(${1:&time},${2:ini},${3:end});
+	${4}
 
 snippet eventd
 	cudaEventDestroy(${1:var});
+	${2}
 
 snippet malloc
-	cudaMalloc(${1:&var},${2:size});
+	cudaMalloc(${1:(void**)&var},${2:size});
+	${3}
 
 snippet free
 	cudaFree(${1:var});
+	${2}
 
-snippet mcpy
+snippet memcpy
 	cudaMemcpy(${1:dest_var},${2:orig_var},${3:size},${4});
+	${5}
 
 snippet memcpyhd
-	cudaMemcpy(${1:dev_var},${2:host_var},${3:size},cudaMemcpyHostToDevice);
+	cudaMemcpy(${1:d_var},${2:h_var},${3:size},cudaMemcpyHostToDevice);
+	${4}
 
 snippet memcpydh
-	cudaMemcpy(${1:host_var},${2:dev_var},${3:size},cudaMemcpyDeviceToHost);
+	cudaMemcpy(${1:h_var},${2:d_var},${3:size},cudaMemcpyDeviceToHost);
+	${4}
 
-# CUDA Structures
+snippet memcpydd
+	cudaMemcpy(${1:d_var2},${2:d_var1},${3:size},cudaMemcpyDeviceToDevice);
+	${4}
+
+## CUDA Structures
 snippet global
-	__global__ void ${1:name}(${2:args}){
-		${3:// function content}
+	__global__ void ${1:foo}(${2:arg}){
+		${3}
 	}
 
 snippet device
 	__device__ ${1:void} ${2:name}(${3:args}){
-		${4:// function content}
+		${4}
 	}
 
 snippet kernel
-	${1:kernel} <<< ${2:blockNum}, ${3:thPerBlock}, ${4:memSize} >>> (${5:args});
+	${1:foo} <<< ${2:nblocks}, ${3:nthreads}, ${4:smsize} >>> (${5:arg});
+	${6}
 
-# CUDA Data Types
+## CUDA Data Types
 snippet eventt
 	cudaEvent_t ${1:var};
 
-# CUDA words
+## CUDA words
 snippet htod
 	cudaMemcpyHostToDevice
 snippet dtoh
 	cudaMemcpyDeviceToHost
+snippet tx
+	threadIdx.x
+snippet ty
+	threadIdx.y
+snippet tz
+	threadIdx.z
+snippet bx
+	blockIdx.x
+snippet by
+	blockIdx.y
+snippet bz
+	blockIdx.z
 
-# CUDA code lines
+## CUDA code lines
 snippet id
-	${1:int} ${2:id} = threadIdx.x + blockDim.x * blockIdx.x;
+	${1:int} ${2:i} = threadIdx.x + blockDim.x * blockIdx.x;
+	${3}
+
+snippet idtx
+	${1:int} ${2:tx} = threadIdx.x;
+	${3}
+
+snippet idbx
+	${1:int} ${2:bx} = blockIdx.x;
+	${3}
+
+snippet shared
+	__shared__ ${2:type} ${3:s[N];}
+
+# Thrust
+
+## Variables
+snippet hvector
+	thrust::host_vector<${1:type}> ${2:h_v}(${3:N});
+	${4}
+snippet dvector
+	thrust::device_vector<${1:type}> ${2:d_v}(${3:N});
+	${4}
+snippet dptr
+	thrust::device_ptr<${1:type}> ${2:d_ptr}(${3:raw_ptr});
+	${4}
+
+## Functions
+snippet sort
+	thrust::sort(${1:d_v.begin()}, ${2:d_v.end()});
+	${3}
+snippet fill
+	thrust::fill(${1:d_v.begin()},${2:d_v.end()},${3:0});
+	${4}
+snippet seq
+	thrust::sequence(${1:d_v.begin()},${2:d_v.end()});
+	${3}
+snippet copy
+	thrust::copy(${1:orig_v.begin()}, ${2:orig_v.end()}, ${3:dest_v.begin()});
+	${4}
+snippet transform
+	thrust::transform(${1:d_x.begin()}, ${2:d_x.end()}, ${3:d_y.begin()}, ${4:thrust::foo}<${5:type}>()});
+	${6}
+snippet replace
+	thrust::replace(${1:d_x.begin()},${2:d_x.end()},${3:orig_value},${4:dest_value});
+	${5}
+snippet dmalloc
+	thrust::device_malloc<${1:type}>(${2:N});
+	${3}
+snippet ptrcast
+	thrust::raw_pointer_cast(${1:d_v});
+	${2}
