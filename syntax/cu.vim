@@ -26,19 +26,21 @@ syn keyword cType  dim1 dim2 dim3 dim4
 syn keyword cType  int1 int2 int3 int4
 syn keyword cType  uint1 uint2 uint3 uint4
 syn keyword cType  float1 float2 float3 float4
+syn keyword cType  double1 double2 double3 double4
 syn keyword cType  char1 char2 char3 char4
 syn keyword cType  uchar1 uchar2 uchar3 uchar4
 syn keyword cType  short1 short2 short3 short4
 syn keyword cType  int2float float2int
 
 " CUDA special keywords
-syn match       String          "blockIdx\.[xy]"
-syn match       String          "blockDim\.[xy]"
-syn match       String          "GridDim\.[xy]"
 syn match       String          "threadIdx\.[xyz]"
+syn match       String          "blockIdx\.[xyz]"
+syn match       String          "blockDim\.[xyz]"
+syn match       String          "GridDim\.[xyz]"
 syn match       String          "cudaMemcpyHostToDevice"
 syn match       String          "cudaMemcpyDeviceToHost"
 syn match       String          "cudaMemcpyDeviceToDevice"
+syn match       String          "thrust::"
 
 " CUDA functions
 syn keyword cLabel __syncthreads cudaThreadSynchronize
