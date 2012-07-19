@@ -31,6 +31,7 @@ syn keyword cType  char1 char2 char3 char4
 syn keyword cType  uchar1 uchar2 uchar3 uchar4
 syn keyword cType  short1 short2 short3 short4
 syn keyword cType  int2float float2int
+syn keyword cType  thrust
 
 " CUDA special keywords
 syn match       String          "threadIdx\.[xyz]"
@@ -40,7 +41,6 @@ syn match       String          "GridDim\.[xyz]"
 syn match       String          "cudaMemcpyHostToDevice"
 syn match       String          "cudaMemcpyDeviceToHost"
 syn match       String          "cudaMemcpyDeviceToDevice"
-syn match       String          "thrust::"
 
 " CUDA functions
 syn keyword cLabel __syncthreads cudaThreadSynchronize
