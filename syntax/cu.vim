@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	CUDA
-" Maintainer:	
-" Last Change:	
+" Maintainer:
+" Last Change:
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
@@ -11,11 +11,11 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-" Read the C syntax to start with
+" Read the CPP syntax to start with
 if version < 600
-  so <sfile>:p:h/c.vim
+  so <sfile>:p:h/cpp.vim
 else
-  runtime! syntax/c.vim
+  runtime! syntax/cpp.vim
   unlet b:current_syntax
 endif
 
@@ -44,5 +44,6 @@ syn match       String          "cudaMemcpyDeviceToDevice"
 
 " CUDA functions
 syn keyword cLabel __syncthreads cudaThreadSynchronize
-syn keyword cLabel cudaEventCreate cudaEventRecord cudaEventSynchronize cudaEventElapsedTime cudaEventDestroy
+syn keyword cLabel cudaEventCreate cudaEventRecord cudaEventSynchronize
+syn keyword cLabel cudaEventElapsedTime cudaEventDestroy
 syn keyword cLabel cudaMalloc cudaFree cudaMemcpy
