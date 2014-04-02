@@ -74,7 +74,7 @@ Due `CUDA` files are not widely recognized,
 you need to add the following line to your `~.vimrc`
 file::
 
-    au BufNewFile,BufRead *.cu set ft=cu
+    au BufNewFile,BufRead *.cu set ft=cuda
 
 .. _Pathogen: https://github.com/tpope/vim-pathogen
 .. _Snipmate: https://github.com/garbas/vim-snipmate
